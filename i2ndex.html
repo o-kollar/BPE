@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Web Page</title>
+    <meta name="description" content="A simple web page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@latest/dist/cdn.min.js"></script>
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./Tokenizer.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+    <nav>
+    </nav>
+    </main>
+
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+<input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+
+    <input type="text" x-model="data.inputText" @input="encodeDecode(data.inputText)">
+    <p x-text="data.decoded"></p>
+    <div>
+        <template x-for="tokens in data.decoded">
+            <span   class="border border-black rounded bg-orange-400" x-text="`${tokens}`"></span>
+        </template>
+    </div>
+    <p x-text="`[${data.encoded}]`"></p>
+   
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+</body>
+</html>
